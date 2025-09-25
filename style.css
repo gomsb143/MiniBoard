@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #fefbe9, #dbeafe);
+  margin: 0;
+  padding: 0;
+}
+
+.container { padding: 20px; }
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffcc00; /* Sanji yellow */
+  text-shadow: 1px 1px #000;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+input[type="file"] { padding: 6px; }
+
+.board {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.column {
+  padding: 10px;
+  border-radius: 6px;
+  min-width: 200px;
+  flex-shrink: 0;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.column:hover { transform: scale(1.02); }
+
+.column[data-column="To Do"] { background-color: #6b7280; }
+.column[data-column="Doing"] { background-color: #1c7a1c; }
+.column[data-column="Done"] { background-color: #facc15; color: #000; }
+.column:not([data-column="To Do"]):not([data-column="Doing"]):not([data-column="Done"]) {
+  background-color: #9ca3af;
+  color: #fff;
+}
+
+.task {
+  background-color: #fff;
+  padding: 6px 10px;
+  margin: 6px 0;
+  border-radius: 4px;
+  cursor: grab;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  user-select: none;
+  word-wrap: break-word;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.task:hover {
+  background-color: #e5f3e5;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) { .column { min-width: 150px; } }
+
+/* Modal */
+.modal { display: none; position: fixed; z-index: 1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5); }
+.modal-content { background-color: #fefbe9; margin: 10% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center; position: relative; }
+.close { position: absolute; top: 10px; right: 15px; font-size: 22px; cursor: pointer; }
+.report-controls { margin-top: 15px; display: flex; gap: 10px; justify-content: center; }
